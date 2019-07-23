@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.lukasz_2.kurierai.fragments.Fragment_Login;
-import com.example.lukasz_2.kurierai.navigation.NavigationListener;
+import com.example.lukasz_2.kurierai.Interface.NavigationListener;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationListener {

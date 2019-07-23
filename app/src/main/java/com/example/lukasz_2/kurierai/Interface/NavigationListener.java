@@ -1,4 +1,4 @@
-package com.example.lukasz_2.kurierai.navigation;
+package com.example.lukasz_2.kurierai.Interface;
 
 
 import android.support.v4.app.Fragment;

@@ -3,7 +3,7 @@ package com.example.lukasz_2.kurierai.base;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 
-import com.example.lukasz_2.kurierai.navigation.NavigationListener;
+import com.example.lukasz_2.kurierai.Interface.NavigationListener;
 
 public class BaseFragment extends Fragment {
 
