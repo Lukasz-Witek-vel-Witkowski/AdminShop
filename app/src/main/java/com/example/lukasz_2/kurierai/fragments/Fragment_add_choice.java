@@ -1,38 +1,35 @@
 package com.example.lukasz_2.kurierai.fragments;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 import com.example.lukasz_2.kurierai.R;
 import com.example.lukasz_2.kurierai.base.BaseFragment;
 
-public class Fragment_add extends BaseFragment implements View.OnClickListener {
 
-    private static final int RESULT_OK = 1;
+public class Fragment_add_choice extends BaseFragment implements View.OnClickListener {
+
     private ImageButton News;
     private ImageButton Message;
     private ImageButton Add;
     private ImageButton Option;
-    private ImageButton Camera;
-    private ImageView imageView;
+    private Button Item;
+    private Button Type;
 
-    public static Fragment_add newInstance() {
-        return new Fragment_add();
+    public static Fragment_add_choice newInstance() {
+        return new Fragment_add_choice();
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_add, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_add_choice, container, false);
 
         findViews(rootView);
         setListeners();
@@ -42,12 +39,12 @@ public class Fragment_add extends BaseFragment implements View.OnClickListener {
 
     private void findViews(View view) {
         System.out.println("przetwarzanie danych");
-        News = view.findViewById(R.id.ib_news_main_add);
-        Message = view.findViewById(R.id.ib_massage_main_add);
-        Add = view.findViewById(R.id.ib_add_main_add);
-        Option = view.findViewById(R.id.ib_option_main_add);
-        Camera = view.findViewById(R.id.ib_camera_menu_add);
-        imageView = view.findViewById(R.id.iv_image_menu_add);
+        News = view.findViewById(R.id.ib_news_main_add_choice);
+        Message = view.findViewById(R.id.ib_massage_main_add_choice);
+        Add = view.findViewById(R.id.ib_add_main_add_choice);
+        Option = view.findViewById(R.id.ib_option_main_add_choice);
+        Item = view.findViewById(R.id.but_iteam);
+        Type = view.findViewById(R.id.but_type);
     }
 
     private void setListeners() {
@@ -56,19 +53,11 @@ public class Fragment_add extends BaseFragment implements View.OnClickListener {
         Message.setOnClickListener(this);
         Add.setOnClickListener(this);
         Option.setOnClickListener(this);
-        Camera.setOnClickListener(this);
+        Item.setOnClickListener(this);
+        Type.setOnClickListener(this);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 1) {
-            Bundle extras = data.getExtras();
-            Bitmap bitmap = (Bitmap) extras.get("data");
-            imageView.setImageBitmap(bitmap);
-        }
-    }
 
     /**
      * Called when a view has been clicked.
@@ -79,26 +68,29 @@ public class Fragment_add extends BaseFragment implements View.OnClickListener {
     public void onClick(View v) {
         System.out.println("Klikniecie menu!");
         switch (v.getId()) {
-            case R.id.ib_add_main_add:
+            case R.id.ib_add_main_add_choice:
                 System.out.println("Add!");
-                getNavigationListener().changeFragment(Fragment_add.newInstance(), true);
+                getNavigationListener().changeFragment(Fragment_add_choice.newInstance(), true);
                 break;
-            case R.id.ib_massage_main_add:
+            case R.id.ib_massage_main_add_choice:
                 System.out.println("Message!");
                 getNavigationListener().changeFragment(Fragment_message.newInstance(), true);
                 break;
-            case R.id.ib_news_main_add:
+            case R.id.ib_news_main_add_choice:
                 System.out.println("News!");
                 getNavigationListener().changeFragment(Fragment_news.newInstance(), true);
                 break;
-            case R.id.ib_option_main_add:
+            case R.id.ib_option_main_add_choice:
                 System.out.println("Option!");
                 getNavigationListener().changeFragment(Fragment_option.newInstance(), true);
                 break;
-            case R.id.ib_camera_menu_add:
-                System.out.println("Camera!");
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE_SECURE);
-                startActivityForResult(intent, 1);
+            case R.id.but_iteam:
+                System.out.println("Item!");
+                getNavigationListener().changeFragment(Fragment_add_item.newInstance(), true);
+                break;
+            case R.id.but_type:
+                System.out.println("Type!");
+                getNavigationListener().changeFragment(Fragment_add_type.newInstance(), true);
                 break;
         }
     }

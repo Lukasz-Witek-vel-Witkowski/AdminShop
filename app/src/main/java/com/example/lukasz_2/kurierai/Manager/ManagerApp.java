@@ -1,18 +1,18 @@
 package com.example.lukasz_2.kurierai.Manager;
 
-public class MangerApp {
+public class ManagerApp {
     private int Fragment_position;
     private ManagerData mnagerData;
-    private static MangerApp ourInstance = null;
+    private static ManagerApp ourInstance = null;
 
-    public static MangerApp getInstance() {
+    public static ManagerApp getInstance() {
         if(ourInstance==null){
-            ourInstance = new MangerApp();
+            ourInstance = new ManagerApp();
         }
         return ourInstance;
     }
 
-    private MangerApp() {
+    private ManagerApp() {
     }
 
     public int getFragment_position() {

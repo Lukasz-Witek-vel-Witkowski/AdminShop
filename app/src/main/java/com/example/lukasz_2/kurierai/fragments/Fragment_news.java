@@ -63,7 +63,7 @@ public class Fragment_news extends BaseFragment implements View.OnClickListener 
         switch (v.getId()) {
             case R.id.ib_add_main_news:
                 System.out.println("Add!");
-                getNavigationListener().changeFragment(Fragment_add.newInstance(), true);
+                getNavigationListener().changeFragment(Fragment_add_choice.newInstance(), true);
                 break;
             case R.id.ib_massage_main_news:
                 System.out.println("Message!");
